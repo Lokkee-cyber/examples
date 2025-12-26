@@ -1,0 +1,15 @@
+{
+  "expenses": [
+    
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "CEO",
+      "lastName": "Admin",
+      "email": "ceo@gmail.com",
+      "password": "ceo123",
+      "role": "CEO"
+    }
+  ]
+}
