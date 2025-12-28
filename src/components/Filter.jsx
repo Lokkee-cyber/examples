@@ -14,10 +14,10 @@ import { useState } from 'react';
 
 const years = ['2025', '2024', '2023'];
 const Filters = () => {
-  const { month, category, setMonth, setCategory, year, setYear, setFilters } = useUIStore();
+  const { month, category, setMonth, setCategory, year, setYear, setFilters, filters } = useUIStore();
 
   const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
+    setFilters({ ...filters, ...newFilters });
   };
   
   const [isOpen, setIsOpen] = useState(false)

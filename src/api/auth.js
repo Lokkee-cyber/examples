@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL =
   import.meta.env.PROD
     ? 'https://examples-xi-sage.vercel.app'
-    : 'http://localhost:3001'; + '/users';
+    : 'http://localhost:3001/users';
 
 export const loginUser = async ({ email, password }) => {
   const res = await axios.get(

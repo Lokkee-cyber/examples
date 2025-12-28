@@ -16,6 +16,6 @@ toggleTheme:() =>
   set((state) => ({
     themeMode: state.themeMode === 'light' ? 'dark' : 'light',
 })),
-filters: { month: '', category: 'All' },
+filters: { year: '2025', month: '2025-01', category: 'All' },
 setFilters: (filters) => set({ filters }),
 }))
