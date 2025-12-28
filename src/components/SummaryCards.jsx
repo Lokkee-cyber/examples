@@ -3,10 +3,12 @@ import { useExpenses } from '../hooks/useExpenses';
 import { useUIStore } from '../store/useUIStore.jsx';
 
 const SummaryCards = () => {
-  const { data = [] } = useExpenses();
-
-  const total = data.reduce((sum, exp) => sum + exp.amount, 0);
+  const { data } = useExpenses();
   const themeMode = useUIStore((state) => state.themeMode);
+
+  // Ensure data is an array
+  const expenses = Array.isArray(data) ? data : [];
+  const total = expenses.reduce((sum, exp) => sum + (exp.amount || 0), 0);
 
   return (
       <Grid container spacing={2} sx={{ width: '100%' }}>

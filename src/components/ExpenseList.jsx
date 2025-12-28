@@ -6,10 +6,14 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import { useExpenses } from '../hooks/useExpenses.js';
 
 function ExpenseList({ statusFilter = 'Approved' }) {
-  const { data = [], isLoading, isError } = useExpenses();
+  const { data, isLoading, isError } = useExpenses();
   const queryClient = useQueryClient();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  // Ensure data is an array
+  const expenses = Array.isArray(data) ? data : [];
+  const filteredData = expenses.filter(expense => expense.status === statusFilter);
 
   const deleteMutation = useMutation({
     mutationFn: deleteExpense,
@@ -17,10 +21,6 @@ function ExpenseList({ statusFilter = 'Approved' }) {
       queryClient.invalidateQueries({ queryKey: ['expenses'] });
     },
   });
-
-  const filteredData = data.filter(expense => expense.status === statusFilter);
-
-  if (isLoading) return <CircularProgress />;
   if (isError) return <Typography color="error">Error loading expenses</Typography>;
   if (filteredData.length === 0) return <Typography>No {statusFilter} expenses found</Typography>;
 
