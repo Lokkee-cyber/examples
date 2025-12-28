@@ -1,5 +1,9 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:3001/expenses';
+
+const API_URL =
+  import.meta.env.PROD
+    ? 'https://examples-xi-sage.vercel.app'
+    : 'http://localhost:3000'; + '/expenses';
 
 // Fetch all expenses
 export const getExpenses = async (filters) => {
