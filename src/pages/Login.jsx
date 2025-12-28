@@ -40,18 +40,22 @@ const Login = () => {
   return (
     <Container maxWidth="sm" 
             sx={{
-                    height: "100vh"
+                    minHeight: "100vh",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    px: { xs: 2, sm: 3 }
                  }}
     >
       <Box
         sx={{
-          
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Typography variant="h4" sx={{ mb: 3, mt: 5 }}>
+        <Typography variant="h4" sx={{ mb: 3, fontSize: { xs: '1.75rem', sm: '2.125rem' } }}>
           Login
         </Typography>
 
@@ -97,7 +101,7 @@ const Login = () => {
             to="/signup"
             fullWidth
             variant="outlined"
-            sx={{ mt: 3 }}
+            sx={{ mt: 2 }}
           >
             Create an account
           </Button>

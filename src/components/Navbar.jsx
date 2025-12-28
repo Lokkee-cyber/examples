@@ -118,7 +118,9 @@ const Navbar = () => {
           Expense Tracker
         </Typography>
 
-        <SummaryCards />
+        <Box sx={{ alignItems:'end'}}>
+          <SummaryCards />
+        </Box>
       </Toolbar>
     </AppBar>
   );

@@ -43,9 +43,9 @@ const Signup = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ mt: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h4" sx={{ mb: 3 }}>
+    <Container maxWidth="sm" sx={{ px: { xs: 2, sm: 3 } }}>
+      <Box sx={{ minHeight: '100vh', py: 4, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography variant="h4" sx={{ mb: 3, fontSize: { xs: '1.75rem', sm: '2.125rem' } }}>
           Sign Up
         </Typography>
 

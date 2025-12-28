@@ -1,7 +1,5 @@
 {
-  "expenses": [
-    
-  ],
+  "expenses": [],
   "users": [
     {
       "id": "1",
@@ -10,6 +8,27 @@
       "email": "ceo@gmail.com",
       "password": "ceo123",
       "role": "CEO"
+    },
+    {
+      "id": "1766912392743",
+      "firstName": "Ismaila",
+      "lastName": "waliyu",
+      "email": "memesxclusive@gmail.com",
+      "password": "waliyu"
+    },
+    {
+      "id": 1766916622661,
+      "firstName": "Waliyu",
+      "lastName": "Ismaila",
+      "email": "ismailawaliyu6@gmail.com",
+      "password": "waliyu"
+    },
+    {
+      "id": 1766916973653,
+      "firstName": "waliyu",
+      "lastName": "memes",
+      "email": "gbemi@gmail.com",
+      "password": "memes123"
     }
   ]
 }

@@ -10,23 +10,27 @@ const Addexpense = () => {
     return (
         <><Navbar />
         <Container
+            maxWidth="sm"
             sx={{
                 color: themeMode === 'dark'
                     ? 'primary.light'
                     : 'primary.dark',
-                height: '80vh',
+                minHeight: '80vh',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                py: { xs: 2, sm: 4 },
+                px: { xs: 1, sm: 2 }
             }}>
-            <Box>
+            <Box sx={{ width: '100%' }}>
                 <Button
                     variant="outlined"
                     component={Link}
-                    to="/#">
+                    to="/"
+                    sx={{ mb: 2 }}>
                     Back to Dashboard
                 </Button>
-                <Typography variant='h4' margin="10px 0 30px 0" textAlign="center">
+                <Typography variant='h4' margin="10px 0 30px 0" textAlign="center" sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
                     Add Expense
                 </Typography>
 

@@ -9,17 +9,19 @@ const SummaryCards = () => {
   const themeMode = useUIStore((state) => state.themeMode);
 
   return (
-      <Grid >
-        <Card sx={{ minWidth: 150,
-                  marginLeft: "20px", 
+      <Grid container spacing={2} sx={{ width: '100%' }}>
+        <Grid item xs={12} sm={6} md={4}>
+          <Card sx={{ 
+                    minWidth: 150,
                     color: themeMode === 'dark'
                     ? 'primary.light'
                     : 'primary.dark',
                  }}>
-          
-            <Typography variant="h6" lineHeight="30px" padding={0.6} align="center">Total Expenses: ${total}</Typography>
-          
-        </Card>
+            
+              <Typography variant="h6" lineHeight="30px" padding={0.6} align="center" sx={{ fontSize: { xs: '1rem', sm: '1.25rem' } }}>Total Expenses: ${total}</Typography>
+            
+          </Card>
+        </Grid>
       </Grid>
     
   );

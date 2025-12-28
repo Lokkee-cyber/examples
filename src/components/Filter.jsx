@@ -5,7 +5,8 @@ import {
   Select,
   MenuItem,
   Button,
-  TextField
+  TextField,
+  colors
 } from '@mui/material';
 import { useUIStore } from '../store/useUIStore';
 import ExpenseList from '../components/ExpenseList';
@@ -22,7 +23,7 @@ const Filters = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <Box display="flex" gap={3} mt={3} mb={3}>
+    <Box display="flex" gap={3} mt={3} mb={3} >
      
       
 

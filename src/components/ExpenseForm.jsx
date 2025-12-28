@@ -38,12 +38,14 @@ const ExpenseForm = () => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3, display: 'flex', gap: 2 }}>
+    <Box component="form" onSubmit={handleSubmit} sx={{ mb: 3, display: 'flex', gap: 1, flexDirection: { xs: 'column', sm: 'row' }, flexWrap: 'wrap', width: '100%' }}>
       <TextField
         label="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
+        size="small"
+        sx={{ flex: { xs: '1 1 100%', sm: '1 1 calc(25% - 8px)' } }}
       />
 
       <TextField
@@ -52,6 +54,8 @@ const ExpenseForm = () => {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
         required
+        size="small"
+        sx={{ flex: { xs: '1 1 100%', sm: '1 1 calc(25% - 8px)' } }}
       />
 
       <TextField
@@ -59,6 +63,8 @@ const ExpenseForm = () => {
         label="Category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
+        size="small"
+        sx={{ flex: { xs: '1 1 100%', sm: '1 1 calc(25% - 8px)' } }}
       >
         <MenuItem value="Food">Food</MenuItem>
         <MenuItem value="Rent">Rent</MenuItem>
@@ -70,9 +76,11 @@ const ExpenseForm = () => {
         type="month"
         value={month}
         onChange={(e) => setMonth(e.target.value)}
+        size="small"
+        sx={{ flex: { xs: '1 1 100%', sm: '1 1 calc(25% - 8px)' } }}
       />
 
-      <Button type="submit" variant="contained" disabled={!user || mutation.isPending}>
+      <Button type="submit" variant="contained" disabled={!user || mutation.isPending} sx={{ flex: { xs: '1 1 100%', sm: 'auto' } }}>
         {mutation.isPending ? 'Adding...' : 'Add'}
       </Button>
     </Box>
