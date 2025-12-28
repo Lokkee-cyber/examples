@@ -8,7 +8,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import { Navigate } from 'react-router-dom';
 
 const CEODashboard = () => {
-  const { data = [], isLoading, isError } = useExpenses();
+  const { data, isLoading, isError } = useExpenses();
   const queryClient = useQueryClient();
   const user = useAuthStore((state) => state.user);
   const [selectedExpense, setSelectedExpense] = useState(null);
@@ -19,6 +19,10 @@ const CEODashboard = () => {
   if (!user || user.role !== 'CEO') {
     return <Navigate to="/" />;
   }
+
+  // Ensure data is an array
+  const expenses = Array.isArray(data) ? data : [];
+  const pendingExpenses = expenses.filter(exp => exp.status === 'Pending');
 
   const updateMutation = useMutation({
     mutationFn: ({ id, updatedData }) => updateExpense(id, updatedData),
@@ -47,8 +51,6 @@ const CEODashboard = () => {
       updatedData: { status: action },
     });
   };
-
-  const pendingExpenses = data.filter(exp => exp.status === 'Pending');
 
   if (isLoading) return <CircularProgress />;
   if (isError) return <Typography color="error">Error loading expenses</Typography>;

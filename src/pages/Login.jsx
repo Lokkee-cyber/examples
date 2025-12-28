@@ -25,7 +25,12 @@ const Login = () => {
     mutationFn: loginUser,
     onSuccess: (user) => {
       setUser(user);
-      navigate('/');
+      // Redirect to CEO dashboard if user is CEO, otherwise to regular dashboard
+      if (user?.role === 'CEO') {
+        navigate('/ceo-dashboard');
+      } else {
+        navigate('/');
+      }
     },
     onError: (error) => {
       console.error('Login failed:', error.message);
