@@ -24,13 +24,18 @@ const Login = () => {
   const mutation = useMutation({
     mutationFn: loginUser,
     onSuccess: (user) => {
+      console.log('Login successful, user data:', user);
       setUser(user);
       // Redirect to CEO dashboard if user is CEO, otherwise to regular dashboard
-      if (user?.role === 'CEO') {
-        navigate('/ceo-dashboard');
-      } else {
-        navigate('/');
-      }
+      setTimeout(() => {
+        if (user?.role === 'CEO') {
+          console.log('Redirecting to CEO dashboard');
+          navigate('/ceo-dashboard');
+        } else {
+          console.log('Redirecting to regular dashboard');
+          navigate('/');
+        }
+      }, 100);
     },
     onError: (error) => {
       console.error('Login failed:', error.message);

@@ -8,12 +8,14 @@ const API_URL =
 // Fetch all expenses
 export const getExpenses = async (filters) => {
   const { year, month, category } = filters;
-  let query = '';
-  if (year)  query += `year=${year}`;
-  if (month) query += `month=${month}`;
-  if (category && category !== 'All') query += (query ? '&' : '') + `category=${category}`;
+  const params = new URLSearchParams();
   
-  const res = await axios.get(`${API_URL}?${query}`);
+  if (year) params.append('year', year);
+  if (month) params.append('month', month);
+  if (category && category !== 'All') params.append('category', category);
+  
+  const query = params.toString();
+  const res = await axios.get(`${API_URL}${query ? '?' + query : ''}`);
   return res.data;
 };
 
